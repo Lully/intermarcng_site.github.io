@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title>Intermarc NG - Format</title>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <link rel='stylesheet' href='http://www.simile-widgets.org/styles/common.css' type='text/css' />
+    
+    <!--link href="https://raw.githubusercontent.com/Lully/bnf-sru/master/chantiers/noemi/zones.js" type="application/json" rel="exhibit/data" /-->
+    <link href="zones.js" type="application/json" rel="exhibit/data">
+	
+    <!-- Replace the URL here with http://api.simile-widgets.org/exhibit/current/exhibit-api.js -->
+    <script src="http://api.simile-widgets.org/exhibit/current/exhibit-api.js"></script>
+    <!-- Replace the URL here with http://api.simile-widgets.org/exhibit/current/extensions/time/time-extension.js -->
+    <link rel="exhibit-extension" type="text/javascript" href="http://api.simile-widgets.org/exhibit/current/extensions/time/time-extension.js" />
+    
+    <!-- Replace the URL here with http://api.simile-widgets.org/exhibit/current/extensions/time/time-extension.js -->
+    <!--link rel="exhibit-extension" href="http://api.simile-widgets.org/exhibit/current/extensions/map/map-extension.js" data-ex-apikey="AIzaSyCDO3EXWKJms5T38db48czFJZDunhYIzn8" /-->
+    <!-- Replace the above apiKey with your own (this one will eventually stop working) -->
+    
+    <link rel='stylesheet' href='styles.css' type='text/css' />
+<style>
+.logo {
+	display: none,
+   text-align: center
+}
+.lens-table {
+width: 100%
+}
+.lens-table td {
+   padding: 10px
+}
+</style>
+  </head>
+
+  <body>
+    
+    <div data-ex-role="collection" data-ex-item-types="zone"></div>
+    <table id="frame">
+        <tr>
+            <td id="sidebar">
+                <h1>Zones Intermarc NG</h1>
+			    <p><a href="html/faq.html">FAQ</a></p>
+                <!--p>Here is the <a href="presidents.js" target="_blank">Exhibit JSON data file</a-->
+                
+                <div id="exhibit-browse-panel">
+                    <b>Rechercher</b>
+                    <div data-ex-role="facet" data-ex-facet-class="TextSearch"></div>
+                    <hr/>
+                    <div data-ex-role="facet" data-ex-expression=".tag_label" data-ex-facet-label="Tag" data-ex-height="20em"></div>
+					<div data-ex-role="facet" data-ex-expression=".entities" data-ex-facet-label="Entités" data-ex-height="20em"></div>
+					<div data-ex-role="facet" data-ex-expression=".soustype" data-ex-facet-label="Type d'élément" data-ex-height="5em"></div>
+                    
+                </div>
+            </td>
+            <td id="content">
+                               
+                <div data-ex-role="viewPanel" data-ex-initial-view="0" data-ex-formats="date { mode: medium; show: date }">
+                  
+                    <div data-ex-role="view"
+                        data-ex-view-class="Tabular"
+                        data-ex-label="Details"
+                        data-ex-columns=".tag, .tag_label, .entities, .exemples"
+                        data-ex-column-labels="Tag, Libellé, Entités, Exemples"
+                        
+                        data-ex-sort-column="3"
+                        data-ex-sort-ascending="false"
+                        data-ex-paginate="false"
+                        data-ex-page-size="5"
+                        >
+                        <table style="display: none;">
+                            <tr>
+                                <td><b><a data-ex-href-content=".url"><span data-ex-content=".tag"></span></a></td>
+                                <td><a data-ex-href-content=".url"><b data-ex-content=".tag_label"></b></a></td>
+                                <td><span data-ex-content=".entities"></span></td>
+								<td>
+									<div data-ex-if-exists=".url_exemples"><a data-ex-href-content=".url_exemples">exemples</span></a></div>
+								</td>
+
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+  </body>
+</html>
